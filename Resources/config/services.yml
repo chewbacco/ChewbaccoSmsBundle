@@ -1,0 +1,11 @@
+parameters:
+    short_message.client.class: ShortMessage\Client\DevinoClient
+    short_message.messenger.class: ShortMessage\Messenger
+services:
+    short_message.client:
+        class: %short_message.client.class%
+        arguments: [@buzz, %client_devino_config%]
+
+    short_message.messenger:
+        class: %short_message.messenger.class%
+        arguments: [@short_message.client]
